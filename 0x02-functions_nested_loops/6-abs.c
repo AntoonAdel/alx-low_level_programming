@@ -3,16 +3,14 @@
 /**
  * _abs - function that computes the absolute value of an integer.
  * @x: the input of the integer type
- * Return: Always 0 (Success)
+ * Return: the absolte value of the integer
  */
 
-int main(void)
+int _abs(int n)
 {
-	int x;
-	
-	x = _abs(-1);
-	_putchar(x);
-	_putchar('\n');
-
-	return (0);
+	if (n >= 0)
+	{
+		return (n);
+	}
+	return (-n);
 }
