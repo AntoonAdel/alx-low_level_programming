@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * main – Entry point
+ * print_sign – Entry point
  * Description: prints
  * Return: Always 0 (Success)
  */
