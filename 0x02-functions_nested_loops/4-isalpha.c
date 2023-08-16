@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- *_isalpha – print the alphabet if lower or upper
+ *_isalpha - checks for alphabetic character
  * Description: prints
  *@c: is the char to be checked
  * Return: Always 0 (Success)

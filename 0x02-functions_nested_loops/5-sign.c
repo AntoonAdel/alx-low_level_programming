@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_sign – print if n > 0 or n = 0 or n < 0
+ * print_sign - prints the sign of a number
  * Description: prints
  *@n: is the num to be checked
  * Return: Always 0 (Success)
