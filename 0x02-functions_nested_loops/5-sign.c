@@ -1,7 +1,8 @@
 #include "main.h"
 /**
- * print_sign – Entry point
+ * print_sign – print if n > 0 or n = 0 or n < 0
  * Description: prints
+ *@n: is the num to be checked
  * Return: Always 0 (Success)
  */
 

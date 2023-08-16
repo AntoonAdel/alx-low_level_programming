@@ -1,7 +1,8 @@
 #include "main.h"
 /**
- * _isalpha – Entry point
+ *_isalpha – print the alphabet if lower or upper
  * Description: prints
+ *@c: is the char to be checked
  * Return: Always 0 (Success)
  */
 

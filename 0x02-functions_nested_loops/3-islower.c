@@ -1,8 +1,9 @@
 #include "main.h"
 /**
- * _islower – Entry point
+ *_islower – print the alphabet if c is lowercase
  * Description: print
  * Return: 1 if 'c' lowercase (Success)
+ *@c: is the char to be checked
  */
 
 int _islower(int c)
