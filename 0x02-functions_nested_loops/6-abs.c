@@ -6,11 +6,11 @@
  * Return: the absolte value of the integer
  */
 
-int _abs(int n)
+int _abs(int x)
 {
-	if (n >= 0)
+	if (x < 0)
 	{
-		return (n);
+		x = (-1) * x;
 	}
-	return (-n);
+	return (x);
 }
