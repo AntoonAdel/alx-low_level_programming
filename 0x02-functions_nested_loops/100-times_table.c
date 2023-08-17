@@ -1,8 +1,7 @@
 #include "main.h"
 
-/*
- * print_times_table - prints time table of n. if 0 <= n <=15
- *
+/**
+ * print_times_table - prints the n times table, starting with 0
  * @n: the input integer
  */
 
@@ -12,11 +11,11 @@ void print_times_table(int n)
 
 	if (n >= 0 && n <= 15)
 	{
-		for (num = 0; num <= n; ++num)
+		for (num = 0; num <= n; num++)
 		{
 			_putchar(48);
 
-			for (mult = 1; mult <= n; ++mult)
+			for (mult = 1; mult <= n; mult++)
 			{
 				_putchar(',');
 				_putchar(' ');
@@ -27,11 +26,11 @@ void print_times_table(int n)
 				{
 					_putchar(' ');
 				}
-				if (prod <= 99)
+				else if (prod <= 99)
 				{
 					_putchar(' ');
 				}
-				if (prod >= 100)
+				else if (prod >= 100)
 				{
 					_putchar((prod / 100) + 48);
 					_putchar((prod / 10) + 48);
