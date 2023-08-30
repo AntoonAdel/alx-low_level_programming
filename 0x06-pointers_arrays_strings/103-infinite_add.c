@@ -26,8 +26,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	r[l] = '\0';
 	for (k = l - 1; k >= 0; k--)
 	{
-		t++;
-		o++;
+		t--;
+		o--;
 		if (t >= 0)
 			f = n1[t] - '0';
 		else
