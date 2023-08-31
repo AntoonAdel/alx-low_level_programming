@@ -27,9 +27,10 @@ int palindrome_checker(char *s, int a, int n)
 	{
 		if (a > n / 2)
 			return (1);
-	}
+	
 		else
 			return (palindrome_checker(s, a + 1, n - 1));
+	}
 	else
 		return (0);
 }
