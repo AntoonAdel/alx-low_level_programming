@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
   * prim_nums - Makes possible to evaluate from 1 to n
