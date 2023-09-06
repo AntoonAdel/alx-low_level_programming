@@ -84,4 +84,4 @@ char **strtow(char *str)
 		free(s);
 	}
 	return (s);
-}														return }
+}
