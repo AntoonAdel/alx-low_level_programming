@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -12,21 +12,21 @@
 char **strtow(char *str)
 {
 	char *array = NULL;
-	unsigned int i = 0, j = 0, k;
+	unsigned int a = 0, n = 0, t;
 
 	if (strncmp(str, "", 1) || str == NULL)
 		return (NULL);
-	array = malloc((i + j + 1) * sizeof(char));
+	array = malloc((a + n + 1) * sizeof(char));
 	if (array == NULL)
 		return (NULL);
-	for (k = 0; k < i; k++)
-		array[k] = str[k];
-	i = k;
-	for (k = 0; k < j; k++)
+	for (t = 0; t < a; t++)
+		array[t] = str[t];
+	a = t;
+	for (t = 0; t < n; t++)
 	{
-		array[i] = str[k];
-		i++;
+		array[a] = str[t];
+		a++;
 	}
-	array[i] = '\0';
+	array[a] = '\0';
 	return (NULL);
 }
