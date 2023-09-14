@@ -39,12 +39,12 @@ void tfloat(va_list list)
   */
 void tstring(va_list list)
 {
-	char *ch;
+	char *tmp;
 
-	ch = va_arg(list, char *);
-	if (ch == 0)
-		ch = "(nil)";
-	printf("%s", ch);
+	tmp = va_arg(list, char *);
+	if (tmp == 0)
+		tmp = "(nil)";
+	printf("%s", tmp);
 }
 
 /**
@@ -62,25 +62,25 @@ void print_all(const char * const format, ...)
 		{"s", tstring}
 	};
 
-	int a1 = 0, a2 = 0;
+	int l1 = 0, l2 = 0;
 	va_list list;
 	char *comma = "";
 
 	va_start(list, format);
-	while (format && format[a1])
+	while (format && format[l1])
 	{
-		a2 = 0;
-		while (a2 < 4)
+		l2 = 0;
+		while (l2 < 4)
 		{
-			if (format[a1] == fa[a2].tc[0])
+			if (format[l1] == fa[l2].tc[0])
 			{
 				printf("%s", comma);
-				fa[a2].tf(list);
+				fa[l2].tf(list);
 				comma = ", ";
 			}
-			a2++;
+			l2++;
 		}
-		a1++;
+		l1++;
 	}
 	printf("\n");
 	va_end(list);
