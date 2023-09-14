@@ -4,44 +4,44 @@
 
 /**
   * tchar - prints variadic argument char
-  * @ls: variadic list
+  * @list: variadic list
   * Return: No return
   */
-void tchar(va_list ls)
+void tchar(va_list list)
 {
-	printf("%c", va_arg(ls, int));
+	printf("%c", va_arg(list, int));
 }
 
 /**
   * tint - prints variadic argument int
-  * @ls: variadic list
+  * @list: variadic list
   * Return: No return
   */
-void tint(va_list ls)
+void tint(va_list list)
 {
-	printf("%i", va_arg(ls, int));
+	printf("%i", va_arg(list, int));
 }
 
 /**
   * tfloat - prints variadic argument float
-  * @ls: variadic list
+  * @list: variadic list
   * Return: No return
   */
-void tfloat(va_list ls)
+void tfloat(va_list list)
 {
-	printf("%f", va_arg(ls, double));
+	printf("%f", va_arg(list, double));
 }
 
 /**
   * tstring - prints variadic argument string
-  * @ls: variadic list
+  * @list: variadic list
   * Return: No return
   */
-void tstring(va_list ls)
+void tstring(va_list list)
 {
 	char *ch;
 
-	ch = va_arg(ls, char *);
+	ch = va_arg(list, char *);
 	if (ch == 0)
 		ch = "(nil)";
 	printf("%s", ch);
@@ -63,10 +63,10 @@ void print_all(const char * const format, ...)
 	};
 
 	int a1 = 0, a2 = 0;
-	va_list ls;
+	va_list list;
 	char *comma = "";
 
-	va_start(ls, format);
+	va_start(list, format);
 	while (format && format[a1])
 	{
 		a2 = 0;
@@ -75,7 +75,7 @@ void print_all(const char * const format, ...)
 			if (format[a1] == fa[a2].tc[0])
 			{
 				printf("%s", comma);
-				fa[a2].tf(ls);
+				fa[a2].tf(list);
 				comma = ", ";
 			}
 			a2++;
@@ -83,5 +83,5 @@ void print_all(const char * const format, ...)
 		a1++;
 	}
 	printf("\n");
-	va_end(ls);
+	va_end(list);
 }
