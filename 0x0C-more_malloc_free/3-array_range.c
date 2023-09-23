@@ -2,32 +2,29 @@
 #include <stdlib.h>
 
 /**
-  * array_range -  creates an array of integers
-  * The array created should contain all the values
-  * from min (included) to max (included), ordered from min to max
-  * @min: minimal value
-  * @max: maximum value
-  * Return: Pointer to allocated memory of s1 + nbytes of s2
+  * *array_range - creates an array of integers
+  * @min: minimum range of values stored
+  * @max: maximum range of values stored and number of elements
+  * Return: pointer to the new array
   */
 
 int *array_range(int min, int max)
 {
-	int *ptr;
-	int size, a;
+	int *p;
+	int a, size;
 
 	if (min > max)
 		return (NULL);
 
-	else
-		size = max - min + 1;
+	size = max - min + 1;
 
-	ptr = malloc(sizeof(int) * size);
+	p = malloc(sizeof(int) * size);
 
-	if (ptr == NULL)
+	if (p == NULL)
 		return (NULL);
 
-	for (a = 0, min <= max; a++)
-		ptr[a] = min++;
+	for (a = 0; min <= max; a++)
+		p[a] = min++;
 
-	return (ptr);
+	return (p);
 }
