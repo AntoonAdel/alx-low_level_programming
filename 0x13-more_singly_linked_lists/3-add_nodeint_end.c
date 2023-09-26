@@ -1,5 +1,5 @@
-#include "lists.h"
 #include <stdio.h>
+#include "lists.h"
 #include <stdlib.h>
 
 /**
@@ -11,29 +11,26 @@
 
 listint_t *add_nodeint_end(listint_t **head, const int n)
 {
-	listint_t *temp, *new;
-
-	new = malloc(sizeof(listint_t));
-	temp = *head;
+	listint_t *tmp;
+	listint_t *new = malloc(sizeof(listint_t));
 
 	if (new == 0)
-	{
-		return (NULL);
-	}
-	new->n = n;
-	new->next = NULL;
+		return (0);
 
-	if (temp == 0)
+	tmp = *head;
+
+	new->n = n;
+	new->next = 0;
+
+	if (tmp == 0)
 	{
 		*head = new;
 	}
 	else
 	{
-		while (temp->next != NULL)
-		{
-			temp = temp->next;
-		}
-		temp->next = new;
+		while (tmp->next != 0)
+			tmp = tmp->next;
+		tmp->next = new;
 	}
 
 	return (new);
