@@ -3,18 +3,16 @@
 #include <stdlib.h>
 
 /**
-  * free_listint - frees a linked list
-  * @head: listint_t list to be freed
+  * free_listint - frees memory of a list
+  * @head: head pointer of singly linked list
+  * Return: No Return
   */
 
 void free_listint(listint_t *head)
 {
-	listint_t *ptr;
+	if (head == 0)
+		return;
 
-	while (head != 0)
-	{
-		ptr = head->next;
-		free(head);
-		head = ptr;
-	}
+	free_listint(head->next);
+	free(head);
 }
