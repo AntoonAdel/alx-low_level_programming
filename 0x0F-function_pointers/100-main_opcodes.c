@@ -3,31 +3,41 @@
 #include <stdlib.h>
 
 /**
-  * main - program that prints the opcodes of its own main function
-  * @argc: Counts the number of parameters that go into main
-  * @argv: Pointer of array of pointers containing strings entering main
-  * Return: 0 on succes, 1 on argv != 2, 2 on negative bytes in argv
+  * main - prints its own opcodes
+  * @argc: number of arguments
+  * @argv: array of arguments
+  * Return: Always 0 (Success)
   */
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int a, byts;
+	int bytes, a;
 	char *ptr;
 
 	if (argc != 2)
-		printf("Error\n", exit(1);
+	{
+		printf("Error\n");
+		exit(1);
+	}
 
-	byts = atoi(argv[1]);
+	bytes = atoi(argv[1]);
 
-	if (byts < 0)
-		printf("Error\n"), exit(2);
+	if (bytes < 0)
+	{
+		printf("Error\n");
+		exit(2);
+	}
 
 	ptr = (char *)main;
 
-	for (a = 0; a < byts - 1; a++)
+	for (a = 0; a < bytes; a++)
+	{
+		if (a == bytes - 1)
+		{
+			printf("%02hhx\n", ptr[a]);
+			break;
+		}
 		printf("%02hhx ", ptr[a]);
-
-	printf("%02hhx\n", ptr[a]);
-
+	}
 	return (0);
 }
