@@ -10,23 +10,23 @@
 
 int main(int argc, char **argv)
 {
-	int a, bytes;
-	char *mainaddr;
+	int a, byts;
+	char *ptr;
 
 	if (argc != 2)
 		printf("Error\n", exit(1);
 
-	bytes = atoi(argv[1]);
+	byts = atoi(argv[1]);
 
-	if (bytes < 0)
+	if (byts < 0)
 		printf("Error\n"), exit(2);
 
-	mainaddr = (char *)main;
+	ptr = (char *)main;
 
-	for (a = 0; a < bytes - 1; a++)
-		printf("%02hhx ", mainaddr[a]);
+	for (a = 0; a < byts - 1; a++)
+		printf("%02hhx ", ptr[a]);
 
-	printf("%02hhx\n", mainaddr[a]);
+	printf("%02hhx\n", ptr[a]);
 
 	return (0);
 }
