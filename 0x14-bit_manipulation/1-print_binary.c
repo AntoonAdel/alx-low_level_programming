@@ -13,12 +13,12 @@ void bin_rep(unsigned long int a, int checker)
 	if (checker == 1)
 	{
 		_putchar('0');
-		return (0);
+		return;
 	}
 
 	if (a == 0)
 	{
-		return (0);
+		return;
 	}
 
 	bin_rep(a >> 1, checker);
