@@ -45,7 +45,8 @@ int main(int argc, char **argv)
 
 	if (fp_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
 	}
 
 	while ((checkrd = read(fp_from, buffer, 1024)) > 0)
@@ -67,14 +68,16 @@ int main(int argc, char **argv)
 	checker1 = close(fp_from);
 	if (checker1 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_from), exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_from);
+		exit(100);
 	}
 
 	checker2 = close(fp_to);
 
 	if (checker2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_to), exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_to);
+		exit(100);
 	}
 
 	return (0);
