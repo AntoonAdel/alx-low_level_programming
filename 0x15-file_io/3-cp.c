@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 	if (fp_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
+		close(fp_from), exit(99);
 	}
 
 	while ((checkrd = read(fp_from, buffer, 1024)) > 0)
