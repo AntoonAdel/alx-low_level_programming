@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
-	fp_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	fp_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 
 	if (fp_to == -1)
 	{
