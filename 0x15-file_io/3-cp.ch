@@ -1,3 +1,4 @@
+#include "main.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -28,19 +29,25 @@ int main(int argc, char **argv)
 	char buffer[1024];
 
 	if (argc != 3)
+	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
+	}
 
 	fp_from = open(argv[1], O_RDONLY);
+
 	if (fp_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
-	fp_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (fp_to == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	fp_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 
+	if (fp_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		close(fp_from), exit(99);
+	}
 
 	while ((checkrd = read(fp_from, buffer, 1024)) > 0)
 	{
@@ -51,17 +58,27 @@ int main(int argc, char **argv)
 			exit(99);
 		}
 	}
+
 	if (checkrd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
+
 	checker1 = close(fp_from);
 	if (checker1 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_from), exit(100);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_from);
+		exit(100);
+	}
+
 	checker2 = close(fp_to);
+
 	if (checker2 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_to), exit(100);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_to);
+		exit(100);
+	}
 
 	return (0);
 }
